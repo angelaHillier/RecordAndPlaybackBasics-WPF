@@ -1,0 +1,62 @@
+﻿<Window x:Class="Microsoft.Samples.Kinect.RecordAndPlaybackBasics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Record and Playback Basics" 
+        Height="600" Width="700"  
+        Closing="MainWindow_Closing">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="MediumGreyBrush" Color="#ff6e6e6e" />
+        <SolidColorBrush x:Key="KinectPurpleBrush" Color="#ff52318f" />
+        <SolidColorBrush x:Key="KinectBlueBrush" Color="#ff00BCF2" />
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10 0 10 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0" Source="Images\Logo.png" HorizontalAlignment="Left" Stretch="Fill" Height="32" Width="81" Margin="0 10 0 5" />
+        <TextBlock Grid.Row="0" Margin="0 0 -1 0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="{StaticResource MediumGreyBrush}" FontFamily="Segoe UI" FontSize="18">Record and Playback Basics</TextBlock>
+        <Image Grid.Row="0" Source="Images\Status.png" Stretch="None" HorizontalAlignment="Center" Margin="0 0 0 5" />
+
+        <Grid Grid.Row="1" Background="Black" Margin="30 0 30 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Viewbox x:Name="kinectIRViewbox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+                <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
+            </Viewbox>
+            <Viewbox x:Name="kinectDepthViewbox" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
+                <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
+            </Viewbox>
+            <Viewbox x:Name="kinectBodyIndexViewbox" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
+                <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
+            </Viewbox>
+            <Viewbox x:Name="kinectBodyViewbox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+                <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
+            </Viewbox>
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Background="White">
+                <Button x:Name="RecordButton" Content="Record" Width="90" Click="RecordButton_Click" Margin="10" Padding="5" />
+                <Button x:Name="PlayButton" Content="Play" Width="90" Click="PlayButton_Click" Margin="10" Padding="5" />
+            </StackPanel>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding RecordPlaybackStatusText}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="{StaticResource KinectBlueBrush}" FontFamily="Segoe UI" FontSize="18" Margin="10"/>
+        </Grid>
+
+        <StatusBar Grid.Row="3" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" Foreground="{StaticResource MediumGreyBrush}">
+            <StatusBarItem Content="{Binding KinectStatusText}" />
+        </StatusBar>
+    </Grid>
+</Window>

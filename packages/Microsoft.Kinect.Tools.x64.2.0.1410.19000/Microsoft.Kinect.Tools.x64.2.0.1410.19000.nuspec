@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.Kinect.Tools.x64</id>
+    <version>2.0.1410.19000</version>
+    <title>Microsoft Kinect Tools (x64)</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://go.microsoft.com/fwlink/?LinkID=236061</licenseUrl>
+    <projectUrl>http://go.microsoft.com/fwlink/?LinkID=236066</projectUrl>
+    <iconUrl>http://go.microsoft.com/fwlink/?LinkId=510945</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Microsoft Kinect Tools runtime.</description>
+    <summary>Microsoft Kinect Tools runtime.</summary>
+    <releaseNotes>This version works with Kinect for Windows v2.0. We recommend you install the SDK for access to samples and tools.</releaseNotes>
+    <copyright>Copyright 2014 Microsoft</copyright>
+    <tags>Kinect Tools Playback Record XEF</tags>
+  </metadata>
+</package>
